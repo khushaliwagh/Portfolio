@@ -1,0 +1,19 @@
+<footer class="mt-5 py-3 text-center text-muted" style="font-size:13px; border-top: 1px solid #e5e7eb;">
+    &copy; <%= new Date().getFullYear() %> Khushali Wagh Portfolio CMS &bull; All Rights Reserved
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Live table search filter
+    const searchInput = document.getElementById('adminSearchInput');
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase().trim();
+            const rows = document.querySelectorAll('tbody tr');
+            rows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                row.style.display = text.includes(query) ? '' : 'none';
+            });
+        });
+    }
+</script>

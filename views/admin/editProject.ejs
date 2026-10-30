@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Project | Admin Dashboard</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+        .form-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .current-img {
+            max-width: 220px;
+            max-height: 160px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+        }
+
+        #newPreview {
+            max-width: 220px;
+            max-height: 160px;
+            object-fit: cover;
+            border-radius: 12px;
+            display: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <!-- Sidebar Partial -->
+        <%- include('../partials/adminSidebar', { active: 'projects' }) %>
+
+        <!-- Main -->
+        <div class="main">
+
+            <!-- Navbar Partial -->
+            <%- include('../partials/adminNavbar') %>
+
+            <div class="container-fluid mt-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <h2 class="fw-bold mb-1">
+                            <i class="fas fa-edit text-warning me-2"></i> Edit Project
+                        </h2>
+                        <p class="text-muted mb-0">Update project details, links, or screenshot</p>
+                    </div>
+
+                    <a href="/admin/projects" class="btn btn-outline-secondary">
+                        <i class="fas fa-arrow-left me-1"></i> Back to Projects
+                    </a>
+                </div>
+
+                <div class="form-card">
+                    <form action="/admin/projects/update/<%= project.id %>" method="POST" enctype="multipart/form-data">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">Project Title <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light"><i class="fas fa-heading text-primary"></i></span>
+                                    <input type="text" name="title" class="form-control" value="<%= project.title %>" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">Technologies / Tech Stack <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light"><i class="fas fa-code text-primary"></i></span>
+                                    <input type="text" name="technology" class="form-control" value="<%= project.technology %>" required>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label fw-semibold">Project Description <span class="text-danger">*</span></label>
+                                <textarea name="description" class="form-control" rows="4" required><%= project.description %></textarea>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">GitHub Repository Link</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light"><i class="fab fa-github text-dark"></i></span>
+                                    <input type="url" name="github" class="form-control" value="<%= project.github || '' %>" placeholder="https://github.com/...">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">Live Demo Link</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light"><i class="fas fa-globe text-success"></i></span>
+                                    <input type="url" name="demo" class="form-control" value="<%= project.demo || '' %>" placeholder="https://...">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold d-block">Current Screenshot</label>
+                                <img src="/uploads/projects/<%= project.image %>" class="current-img" alt="Current image" onerror="this.onerror=null;this.src='/images/webs.png';">
+                                <input type="hidden" name="existingImage" value="<%= project.image %>">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold d-block">Replace Screenshot (Optional)</label>
+                                <input type="file" name="image" id="editImageInput" class="form-control mb-2" accept="image/*">
+                                <small class="text-muted d-block mb-2">Leave blank to keep current screenshot</small>
+                                <img id="newPreview" src="" alt="New Preview">
+                            </div>
+
+                            <div class="col-12 d-flex justify-content-end gap-3 mt-4">
+                                <a href="/admin/projects" class="btn btn-secondary px-4 py-2">Cancel</a>
+                                <button type="submit" class="btn btn-success px-4 py-2 shadow-sm">
+                                    <i class="fas fa-check me-2"></i> Update Project
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Footer Partial -->
+            <%- include('../partials/adminFooter') %>
+
+        </div>
+    </div>
+
+    <script>
+        const editImageInput = document.getElementById("editImageInput");
+        const newPreview = document.getElementById("newPreview");
+
+        editImageInput.onchange = function () {
+            if (editImageInput.files && editImageInput.files[0]) {
+                newPreview.src = URL.createObjectURL(editImageInput.files[0]);
+                newPreview.style.display = "inline-block";
+            }
+        }
+    </script>
+</body>
+
+</html>

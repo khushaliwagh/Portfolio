@@ -1,0 +1,76 @@
+<div class="sidebar">
+    <div class="logo">
+        <a href="/admin" style="text-decoration:none; color:white; display:flex; align-items:center; justify-content:center; gap:10px;">
+            <i class="fas fa-layer-group text-primary"></i>
+            <span>Portfolio CMS</span>
+        </a>
+    </div>
+
+    <ul>
+        <li class="<%= (typeof active !== 'undefined' && active === 'dashboard') ? 'active' : '' %>">
+            <a href="/admin">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+
+        <li class="<%= (typeof active !== 'undefined' && active === 'projects') ? 'active' : '' %>">
+            <a href="/admin/projects">
+                <i class="fas fa-folder"></i>
+                <span>Projects</span>
+            </a>
+        </li>
+
+        <li class="<%= (typeof active !== 'undefined' && active === 'add-project') ? 'active' : '' %>">
+            <a href="/admin/projects/add">
+                <i class="fas fa-plus-circle"></i>
+                <span>Add Project</span>
+            </a>
+        </li>
+
+        <li class="<%= (typeof active !== 'undefined' && active === 'messages') ? 'active' : '' %>">
+            <a href="/admin/messages">
+                <i class="fas fa-envelope"></i>
+                <span>Messages</span>
+                <% if (typeof unreadCount !== 'undefined' && unreadCount > 0) { %>
+                    <span class="badge bg-danger ms-auto" style="font-size:11px; padding:3px 7px;"><%= unreadCount %></span>
+                <% } %>
+            </a>
+        </li>
+
+        <li class="<%= (typeof active !== 'undefined' && active === 'skills') ? 'active' : '' %>">
+            <a href="/admin/skills">
+                <i class="fas fa-code"></i>
+                <span>Skills</span>
+            </a>
+        </li>
+
+        <li class="<%= (typeof active !== 'undefined' && active === 'about') ? 'active' : '' %>">
+            <a href="/admin/about">
+                <i class="fas fa-user"></i>
+                <span>About / Profile</span>
+            </a>
+        </li>
+
+        <li class="<%= (typeof active !== 'undefined' && active === 'settings') ? 'active' : '' %>">
+            <a href="/admin/settings">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+        </li>
+
+        <li style="border-top: 1px solid rgba(255,255,255,0.08); margin-top: 15px; padding-top: 15px;">
+            <a href="/" target="_blank">
+                <i class="fas fa-external-link-alt text-info"></i>
+                <span>View Portfolio</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/logout" style="color: #f87171;">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </li>
+    </ul>
+</div>

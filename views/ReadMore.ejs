@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Khushali Wagh | Full Stack Java Developer</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background: #020617;
+            color: #f8fafc;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Navbar */
+        .navbar-custom {
+            backdrop-filter: blur(15px);
+            background: rgba(10, 15, 44, 0.7);
+            border-radius: 16px;
+            border: 1px solid rgba(59, 130, 246, 0.25);
+            position: sticky;
+            top: 15px;
+            z-index: 100;
+        }
+
+        .navbar-nav .nav-link {
+            color: #e2e8f0;
+            transition: 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #3b82f6;
+        }
+
+        /* Glass Cards */
+        .glass {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid #1e293b;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .glass:hover {
+            border-color: rgba(59, 130, 246, 0.5);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.2);
+        }
+
+        .text-blue {
+            color: #3b82f6;
+        }
+
+        .btn-glow {
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            border: none;
+            border-radius: 12px;
+            padding: 12px 30px;
+            font-weight: 600;
+            color: white;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-glow:hover {
+            box-shadow: 0 0 25px #3b82f6;
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .profile-wrapper {
+            position: relative;
+            width: 320px;
+            height: 380px;
+            margin: auto;
+        }
+
+        .bg-shape {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            border-radius: 40px;
+            transform: rotate(-6deg);
+            z-index: 1;
+        }
+
+        .profile-img {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 35px;
+            z-index: 2;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            transition: transform 0.4s;
+        }
+
+        .profile-wrapper:hover .profile-img {
+            transform: scale(1.03);
+        }
+
+        .about-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .about-list li {
+            margin: 14px 0;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .about-list i {
+            color: #3b82f6;
+            margin-right: 12px;
+            width: 20px;
+        }
+
+        .social-icons a {
+            width: 44px;
+            height: 44px;
+            background: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9ca3af;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: #3b82f6;
+            color: white;
+            transform: translateY(-4px) scale(1.1);
+            box-shadow: 0 0 15px #3b82f6;
+        }
+
+        .progress {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            height: 8px;
+        }
+    </style>
+</head>
+
+<body class="p-3 p-md-4">
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom px-4 mb-5">
+        <div class="container-fluid">
+            <a href="/" class="navbar-brand fw-bold text-white d-flex align-items-center">
+                <img src="/images/k1.png" height="45" alt="Khushali Wagh" class="me-2" onerror="this.onerror=null;this.src='/images/Firefly1.png';">
+                <span>Khushali <span class="text-primary">Wagh</span></span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#readNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="readNav">
+                <ul class="navbar-nav ms-auto gap-3">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO ABOUT -->
+    <section class="container mb-5">
+        <div class="row align-items-center g-5">
+
+            <!-- PROFILE IMAGE -->
+            <div class="col-lg-5 text-center">
+                <div class="profile-wrapper">
+                    <div class="bg-shape"></div>
+                    <img src="/images/Firefly1.png" class="profile-img" alt="Khushali Wagh" onerror="this.onerror=null;this.src='/images/Firefly.png';">
+                </div>
+
+                <div class="d-flex justify-content-center gap-3 social-icons mt-4">
+                    <a href="https://linkedin.com/in/khushaliwagh-7a77042b8" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/khushaliwagh" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:khushaliwagh17@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.instagram.com/its_khushhhhii/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- BIO & SUMMARY -->
+            <div class="col-lg-7">
+                <span class="badge bg-primary-subtle text-primary border border-primary-subtle mb-3 px-3 py-2">
+                    🎓 Computer Engineering Graduate (2026)
+                </span>
+
+                <h1 class="fw-bold mb-3">
+                    Hi, I'm <span class="text-blue">Khushali Wagh</span>
+                </h1>
+
+                <p class="lead text-secondary mb-4" style="line-height: 1.8;">
+                    Full Stack Java Developer & Software Engineer with a solid foundation in Object-Oriented Programming, Data Structures, database design, and end-to-end web architecture.
+                </p>
+
+                <p style="color: #94a3b8; line-height: 1.8;">
+                    Having completed formal Full Stack Java development training and an engineering internship at Linkcode Pvt. Ltd, I specialize in building database-backed Java Spring Boot applications, configuring robust RESTful APIs, and developing responsive React.js frontends with Redux Toolkit state management.
+                </p>
+
+                <div class="glass p-4 mb-4">
+                    <h5 class="fw-bold text-white mb-3"><i class="fas fa-laptop-code text-primary me-2"></i> What I Do</h5>
+                    <ul class="about-list mb-0" style="color: #cbd5e1;">
+                        <li><i class="fas fa-code"></i> <strong>Full Stack Web Development:</strong> Crafting full-stack web applications with Java, Spring Boot, React.js, MySQL, and Redux Toolkit.</li>
+                        <li><i class="fas fa-shield-alt"></i> <strong>API & Security:</strong> Designing RESTful microservices with Spring Security, authentication, and cross-origin handling.</li>
+                        <li><i class="fas fa-mobile-alt"></i> <strong>Android Applications:</strong> Creating interactive Android apps using Java, XML, and object-oriented principles.</li>
+                        <li><i class="fas fa-cloud-upload-alt"></i> <strong>Cloud Deployment:</strong> Deploying web applications on platforms like Vercel and Render with continuous integration.</li>
+                    </ul>
+                </div>
+
+                <div class="d-flex gap-3">
+                    <a href="/images/khushaliw.pdf" download="Khushali_Wagh_Resume.pdf" class="btn-glow">
+                        <i class="fas fa-download me-2"></i> Download Complete Resume
+                    </a>
+                    <a href="/#contact" class="btn btn-outline-light px-4 py-2" style="border-radius: 12px; font-weight:600;">
+                        Let's Talk
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- EXPERIENCE & EDUCATION DETAILED -->
+    <section class="container mb-5">
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="glass p-4 h-100">
+                    <h4 class="fw-bold text-blue mb-4"><i class="fas fa-briefcase me-2"></i> Experience & Internship</h4>
+                    <div class="mb-4">
+                        <div class="d-flex justify-content-between mb-1">
+                            <strong class="text-white">Software Development Intern</strong>
+                            <span class="badge bg-primary">June 2026 - Present</span>
+                        </div>
+                        <p class="text-primary mb-2">Linkcode Pvt. Ltd</p>
+                        <p class="text-secondary small mb-0" style="line-height: 1.7;">
+                            Contributed to a team software project building RESTful APIs and Java-based components in a real-world environment. Applied Core Java, coding standards, and CRUD operations with database-backed services.
+                        </p>
+                    </div>
+
+                    <div>
+                        <div class="d-flex justify-content-between mb-1">
+                            <strong class="text-white">Full Stack Java Training</strong>
+                            <span class="badge bg-secondary">Completed</span>
+                        </div>
+                        <p class="text-primary mb-2">LinkCode Technology</p>
+                        <p class="text-secondary small mb-0" style="line-height: 1.7;">
+                            Hands-on mastery of Core Java, OOP, Spring Boot, Spring Security, Hibernate/JPA, React.js, and MySQL.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="glass p-4 h-100">
+                    <h4 class="fw-bold text-blue mb-4"><i class="fas fa-graduation-cap me-2"></i> Education & Achievements</h4>
+
+                    <div class="mb-3">
+                        <strong class="text-white">Bachelor of Engineering (B.E.) – Computer Engineering</strong>
+                        <div class="text-secondary small">Mumbai University, Mumbai, India &bull; SGPA: <strong>8.43</strong> (2023 – 2026)</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <strong class="text-white">Diploma in Engineering</strong>
+                        <div class="text-secondary small">MIT Polytechnic, Yeola, India &bull; Percentage: <strong>74.40%</strong> (2020 – 2022)</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <strong class="text-white">Higher Secondary Certificate (H.S.C.)</strong>
+                        <div class="text-secondary small">CBSE Board, India &bull; Percentage: <strong>68.00%</strong> (2019)</div>
+                    </div>
+
+                    <div class="pt-2 border-top border-secondary-subtle">
+                        <strong class="text-blue small d-block mb-1">Published Research:</strong>
+                        <small class="text-secondary d-block">&bull; International Journal of Engineering Development and Research (IJEDR)</small>
+                        <small class="text-secondary d-block">&bull; Conference Paper at ICETPR 2026</small>
+                        <small class="text-secondary d-block">&bull; International Journal of Innovative Research in Science, Engineering and Technology (IJIRSET)</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="text-center text-secondary py-4 border-top border-secondary-subtle">
+        <p class="mb-1">&copy; 2026 Khushali Wagh &bull; Full Stack Java Developer</p>
+        <a href="/" class="text-primary text-decoration-none small">← Return to Main Portfolio</a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

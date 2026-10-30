@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khushali Wagh | Full Stack Java Developer & Software Engineer</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- AOS (Animate on Scroll) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --bg-dark: #020617;
+            --bg-card: rgba(15, 23, 42, 0.7);
+            --border-card: #1f2937;
+            --primary-blue: #3b82f6;
+            --primary-hover: #2563eb;
+            --accent-glow: rgba(59, 130, 246, 0.4);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg-dark);
+            color: #f8fafc;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* ---------------- COMMON & GLOW ---------------- */
+        .neon-border {
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.35);
+        }
+
+        .card-dark {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 18px;
+            backdrop-filter: blur(12px);
+            transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .card-dark:hover {
+            transform: translateY(-8px) scale(1.01);
+            border-color: rgba(59, 130, 246, 0.7);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.25), 0 0 15px rgba(59, 130, 246, 0.2);
+        }
+
+        /* ---------------- NAVBAR ---------------- */
+        .navbar-custom {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s;
+        }
+
+        .navbar-nav .nav-link {
+            color: #e2e8f0;
+            font-weight: 500;
+            padding: 8px 16px;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: #60a5fa;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 2px;
+            left: 16px;
+            background: #3b82f6;
+            transition: width 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: calc(100% - 32px);
+        }
+
+        /* ---------------- HERO ---------------- */
+        .display-4 {
+            animation: floatText 4s ease-in-out infinite;
+            letter-spacing: -1px;
+        }
+
+        @keyframes floatText {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            border: none;
+            padding: 12px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+            background: linear-gradient(135deg, #1d4ed8, #2563eb);
+        }
+
+        .btn-outline-light {
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            padding: 12px 28px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-outline-light:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #60a5fa;
+            color: #60a5fa;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        /* ---------------- FLOATING IMAGE & ICONS ---------------- */
+        .floating-img {
+            animation: floatImage 4s ease-in-out infinite;
+            filter: drop-shadow(0 0 35px rgba(37, 99, 235, 0.45));
+            border-radius: 30px;
+            max-height: 440px;
+            object-fit: cover;
+        }
+
+        @keyframes floatImage {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-16px); }
+        }
+
+        .glow-circle {
+            position: relative;
+        }
+
+        .floating-icon {
+            color: white;
+            font-weight: bold;
+            padding: 12px 18px;
+            font-size: 20px;
+            border-radius: 14px;
+            background: rgba(15, 23, 42, 0.9) !important;
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            animation: floatIcon 3.5s ease-in-out infinite;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        .floating-icon:hover {
+            transform: scale(1.25) rotate(10deg);
+            background: #2563eb !important;
+            box-shadow: 0 0 25px #3b82f6;
+            color: white;
+        }
+
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-14px); }
+        }
+
+        .html-icon { animation-duration: 3.2s; animation-delay: 0.2s; }
+        .js-icon { animation-duration: 4.1s; animation-delay: 0.5s; }
+        .react-icon { animation-duration: 4.8s; animation-delay: 0.8s; }
+        .java-icon { animation-duration: 5.5s; animation-delay: 1.1s; }
+
+        .react-icon i {
+            animation: spin 8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ---------------- SOCIAL ICONS ---------------- */
+        .social-icons a {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #0f172a;
+            border: 1px solid #1e293b;
+            border-radius: 50%;
+            text-decoration: none;
+            color: #94a3b8;
+            font-size: 20px;
+            transition: all 0.4s ease;
+        }
+
+        .social-icons a:hover {
+            background: #3b82f6;
+            color: #fff;
+            transform: translateY(-8px) rotate(360deg);
+            box-shadow: 0 0 20px #3b82f6;
+            border-color: #3b82f6;
+        }
+
+        /* ---------------- SKILLS BARS ---------------- */
+        .skill-bar {
+            height: 9px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #2563eb, #60a5fa);
+            border-radius: 6px;
+            position: relative;
+            transition: width 1.2s ease-in-out;
+        }
+
+        .skill-card-badge {
+            background: rgba(59, 130, 246, 0.15);
+            color: #93c5fd;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        /* ---------------- PROJECT CARDS ---------------- */
+        .project-card-full {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid #1e293b;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .project-card-full:hover {
+            transform: translateY(-10px);
+            border-color: rgba(59, 130, 246, 0.6);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .project-img-container {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+            background: #0b1120;
+        }
+
+        .project-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .project-card-full:hover .project-img-container img {
+            transform: scale(1.08);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(2,6,23,0) 40%, rgba(2,6,23,0.9) 100%);
+        }
+
+        .tech-tag {
+            background: rgba(30, 41, 59, 0.8);
+            color: #93c5fd;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 500;
+            display: inline-block;
+            margin: 2px;
+        }
+
+        /* ---------------- EXPERIENCE & EDUCATION TIMELINE ---------------- */
+        .timeline-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid #1e293b;
+            border-left: 4px solid #3b82f6;
+            border-radius: 14px;
+            padding: 24px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+
+        .timeline-card:hover {
+            transform: translateX(6px);
+            border-color: #60a5fa;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
+        }
+
+        /* ---------------- CTA ---------------- */
+        .cta-box {
+            background: linear-gradient(145deg, #071c3a, #020617);
+            padding: 50px;
+            border-radius: 24px;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            box-shadow: 0 0 35px rgba(59, 130, 246, 0.25), inset 0 0 25px rgba(59, 130, 246, 0.08);
+        }
+
+        .hire-btn {
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            border: none;
+            padding: 14px 36px;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 16px;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .hire-btn:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.7);
+            color: white;
+        }
+
+        /* ---------------- CONTACT ---------------- */
+        .contact-container {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(15px);
+            padding: 40px;
+            border-radius: 22px;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            box-shadow: 0 0 35px rgba(59, 130, 246, 0.25);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 14px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: #3b82f6;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.35);
+            outline: none;
+            color: white;
+        }
+
+        /* ---------------- TYPING ANIMATION ---------------- */
+        .typing-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.1em;
+            background: #3b82f6;
+            margin-left: 4px;
+            animation: blink 0.8s infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom px-3">
+        <div class="container">
+            <a href="#home" class="navbar-brand d-flex align-items-center">
+                <img src="/images/k1.png" height="55" alt="Khushali Wagh Logo" onerror="this.onerror=null;this.src='/images/Firefly1.png';">
+                <span class="ms-2 fw-bold text-white d-none d-sm-inline" style="letter-spacing: 0.5px;">Khushali <span class="text-primary">Wagh</span></span>
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#portfolioNav" aria-controls="portfolioNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="portfolioNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center gap-1">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                        <a href="/admin" class="btn btn-sm btn-outline-primary px-3 rounded-pill">
+                            <i class="fas fa-lock me-1"></i> Admin Portal
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SUCCESS ALERT TOAST (AFTER CONTACT FORM SUBMISSION) -->
+    <% if (typeof contactSuccess !== 'undefined' && contactSuccess) { %>
+        <div class="container mt-4">
+            <div class="alert alert-success alert-dismissible fade show neon-border" role="alert" style="background: rgba(16, 185, 129, 0.2); color: #6ee7b7; border-color: #10b981;">
+                <i class="fas fa-check-circle me-2"></i>
+                <strong>Thank you!</strong> Your message has been received successfully. Khushali will get back to you shortly!
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    <% } %>
+
+    <!-- HERO SECTION -->
+    <section class="container py-5" id="home">
+        <div class="row align-items-center min-vh-75">
+
+            <!-- LEFT TEXT -->
+            <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                <span class="badge text-primary mb-3" style="background-color: #1e293b; padding: 10px 16px; font-size: 15px; border-radius: 30px; border: 1px solid rgba(59, 130, 246, 0.3);">
+                    👋 Hello, I'm
+                </span>
+
+                <h1 class="display-4 fw-bold mb-2">
+                    Khushali <span class="text-primary">Wagh</span>
+                </h1>
+
+                <p class="lead fw-semibold mb-3" style="color: #60a5fa; font-size: 20px;">
+                    <span id="heroTypingText"></span><span class="typing-cursor"></span>
+                </p>
+
+                <p class="mb-4" style="color: #94a3b8; font-size: 16px; line-height: 1.8;">
+                    Computer Engineering graduate (2026) and Full Stack Java Developer with a strong foundation in Java, Spring Boot, React.js, and MySQL. Experienced in building enterprise-ready REST APIs, microservices, and modern responsive web applications following SDLC best practices.
+                </p>
+
+                <div class="d-flex flex-wrap gap-3 my-4">
+                    <a href="/images/Khushali_Wagh.pdf" download="Khushali_Wagh_Resume.pdf" class="btn btn-primary">
+                        <i class="fas fa-download me-2"></i> Download CV
+                    </a>
+
+                    <a href="#contact" class="btn btn-outline-light">
+                        <i class="fas fa-paper-plane me-2"></i> Contact Me
+                    </a>
+
+                    <a href="#projects" class="btn btn-outline-light">
+                        <i class="fas fa-laptop-code me-2"></i> View Projects
+                    </a>
+                </div>
+
+                <div class="d-flex gap-3 social-icons mt-4">
+                    <a href="https://linkedin.com/in/khushaliwagh-7a77042b8" target="_blank" title="LinkedIn Profile">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+
+                    <a href="https://github.com/khushaliwagh" target="_blank" title="GitHub Profile">
+                        <i class="fab fa-github"></i>
+                    </a>
+
+                    <a href="mailto:khushaliwagh17@gmail.com" title="Send Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+
+                    <a href="https://www.instagram.com/its_khushhhhii/" target="_blank" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- RIGHT FLOATING IMAGE & TECH BADGES -->
+            <div class="col-lg-6 text-center position-relative" data-aos="fade-left" data-aos-duration="1200">
+                <div class="position-relative d-inline-block">
+                    <!-- Main Avatar Image -->
+                    <img src="/images/Firefly.png" class="img-fluid glow-circle floating-img" alt="Khushali Wagh" onerror="this.onerror=null;this.src='/images/Firefly1.png';">
+
+                    <!-- Floating HTML Badge -->
+                    <div class="position-absolute top-0 start-0 floating-icon html-icon" title="Code & Architecture">
+                        &lt;/&gt;
+                    </div>
+
+                    <!-- Floating JavaScript Badge -->
+                    <div class="position-absolute bottom-0 start-0 floating-icon js-icon" title="JavaScript ES6+">
+                        JS
+                    </div>
+
+                    <!-- Floating React Badge -->
+                    <div class="position-absolute top-50 end-0 floating-icon react-icon" title="React.js & Redux">
+                        <i class="fab fa-react text-info"></i>
+                    </div>
+
+                    <!-- Floating Java Badge -->
+                    <div class="position-absolute top-0 end-0 floating-icon java-icon" title="Java & Spring Boot">
+                        <i class="fab fa-java text-danger"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- QUICK PREVIEW SUMMARY CARDS (ABOUT, SKILLS, FEATURED) -->
+    <section class="container py-4" id="about">
+        <div class="row g-4">
+
+            <!-- ABOUT CARD -->
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="card card-dark p-4 h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="p-2 bg-primary-subtle text-primary rounded-3 me-2">
+                                <i class="fas fa-user fa-lg"></i>
+                            </div>
+                            <h5 class="fw-bold mb-0 text-white">About Me</h5>
+                        </div>
+                        <p style="color: #94a3b8; font-size: 15px; line-height: 1.7;">
+                            Passionate Full Stack Java Developer from Pune, Maharashtra. Skilled in building resilient backend architectures with Spring Boot and crafting intuitive React interfaces.
+                        </p>
+                    </div>
+                    <div class="mt-3 pt-3 border-top border-secondary-subtle">
+                        <a href="/read-more" class="text-primary text-decoration-none fw-semibold">
+                            Full Biography & Journey <i class="fas fa-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SKILLS HIGHLIGHT CARD -->
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card card-dark p-4 h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="p-2 bg-primary-subtle text-primary rounded-3 me-2">
+                                <i class="fas fa-code fa-lg"></i>
+                            </div>
+                            <h5 class="fw-bold mb-0 text-white">Core Competencies</h5>
+                        </div>
+
+                        <div class="mb-2">
+                            <div class="d-flex justify-content-between small mb-1">
+                                <span class="text-light">Java & Spring Boot</span>
+                                <span class="text-primary fw-bold">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-2">
+                            <div class="d-flex justify-content-between small mb-1">
+                                <span class="text-light">React.js & Redux Toolkit</span>
+                                <span class="text-primary fw-bold">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-2">
+                            <div class="d-flex justify-content-between small mb-1">
+                                <span class="text-light">MySQL & REST APIs</span>
+                                <span class="text-primary fw-bold">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3 pt-3 border-top border-secondary-subtle">
+                        <a href="#skills" class="text-primary text-decoration-none fw-semibold">
+                            Explore All Skills <i class="fas fa-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECTS PREVIEW CARD -->
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="card card-dark p-4 h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="p-2 bg-primary-subtle text-primary rounded-3 me-2">
+                                <i class="fas fa-folder fa-lg"></i>
+                            </div>
+                            <h5 class="fw-bold mb-0 text-white">Project Highlights</h5>
+                        </div>
+
+                        <div class="d-flex gap-2 overflow-auto pb-2">
+                            <div class="bg-dark p-2 rounded text-center" style="min-width: 100px;">
+                                <img src="/images/webs.png" width="70" height="60" class="rounded object-fit-cover mb-1">
+                                <p class="small text-white mb-0" style="font-size: 11px;">Full Stack Web</p>
+                            </div>
+                            <div class="bg-dark p-2 rounded text-center" style="min-width: 100px;">
+                                <img src="/images/ui.png" width="70" height="60" class="rounded object-fit-cover mb-1">
+                                <p class="small text-white mb-0" style="font-size: 11px;">UI / UX</p>
+                            </div>
+                            <div class="bg-dark p-2 rounded text-center" style="min-width: 100px;">
+                                <img src="/images/mobiles.png" width="70" height="60" class="rounded object-fit-cover mb-1">
+                                <p class="small text-white mb-0" style="font-size: 11px;">Android App</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3 pt-3 border-top border-secondary-subtle">
+                        <a href="#projects" class="text-primary text-decoration-none fw-semibold">
+                            View Project Showcase <i class="fas fa-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FULL PROJECTS SHOWCASE (DYNAMIC FROM MYSQL) -->
+    <section class="container py-5" id="projects">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="badge text-primary mb-2" style="background-color: #1e293b; padding: 8px 16px; border-radius: 20px;">
+                <i class="fas fa-layer-group me-1"></i> Portfolio
+            </span>
+            <h2 class="display-6 fw-bold">
+                Featured <span class="text-primary">Projects</span>
+            </h2>
+            <p class="text-secondary mx-auto" style="max-width: 650px;">
+                Enterprise-grade web and mobile applications developed using modern software design patterns, RESTful APIs, and database-backed services.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <% if (typeof projects !== 'undefined' && projects && projects.length > 0) { %>
+                <% projects.forEach((project, idx) => { %>
+                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="<%= (idx % 2) * 150 + 100 %>">
+                        <div class="project-card-full">
+                            <div class="project-img-container">
+                                <img src="/uploads/projects/<%= project.image %>" alt="<%= project.title %>" onerror="this.onerror=null;this.src='/images/webs.png';">
+                                <div class="project-overlay"></div>
+                                <span class="badge bg-primary position-absolute top-0 end-0 m-3 px-3 py-2 shadow" style="border-radius: 12px;">
+                                    Full Stack
+                                </span>
+                            </div>
+
+                            <div class="p-4 d-flex flex-column flex-grow-1 justify-content-between">
+                                <div>
+                                    <h4 class="fw-bold text-white mb-2"><%= project.title %></h4>
+
+                                    <div class="mb-3">
+                                        <% if (project.technology) { %>
+                                            <% project.technology.split(',').forEach(tech => { %>
+                                                <span class="tech-tag"><%= tech.trim() %></span>
+                                            <% }) %>
+                                        <% } %>
+                                    </div>
+
+                                    <p style="color: #94a3b8; font-size: 14.5px; line-height: 1.7;" class="mb-4">
+                                        <%= project.description %>
+                                    </p>
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary-subtle">
+                                    <div class="d-flex gap-2">
+                                        <% if (project.demo) { %>
+                                            <a href="<%= project.demo %>" target="_blank" class="btn btn-sm btn-primary">
+                                                <i class="fas fa-external-link-alt me-1"></i> Live Demo
+                                            </a>
+                                        <% } %>
+                                        <% if (project.github) { %>
+                                            <a href="<%= project.github %>" target="_blank" class="btn btn-sm btn-outline-light">
+                                                <i class="fab fa-github me-1"></i> GitHub
+                                            </a>
+                                        <% } %>
+                                    </div>
+
+                                    <a href="/admin/projects" class="text-secondary small text-decoration-none">
+                                        <i class="fas fa-cog"></i> Manage
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <div class="col-12 text-center py-5">
+                    <p class="text-muted">No projects found. Log in to the Admin Dashboard to add projects!</p>
+                </div>
+            <% } %>
+        </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS & EXPERTISE SECTION -->
+    <section class="container py-5" id="skills">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="badge text-primary mb-2" style="background-color: #1e293b; padding: 8px 16px; border-radius: 20px;">
+                <i class="fas fa-tools me-1"></i> Tech Stack
+            </span>
+            <h2 class="display-6 fw-bold">
+                Technical <span class="text-primary">Skills</span>
+            </h2>
+            <p class="text-secondary mx-auto" style="max-width: 650px;">
+                Core competencies acquired through formal engineering education, intensive software training, and real-world project deployments.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <!-- BACKEND -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="card card-dark p-4 h-100">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="p-3 bg-primary-subtle text-primary rounded-3 me-3">
+                            <i class="fas fa-server fa-lg"></i>
+                        </div>
+                        <div>
+                            <h5 class="fw-bold mb-0 text-white">Backend Engineering</h5>
+                            <small class="text-secondary">Core Systems & APIs</small>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-wrap gap-2 mb-4">
+                        <span class="skill-card-badge">Java / Core Java</span>
+                        <span class="skill-card-badge">Spring Boot</span>
+                        <span class="skill-card-badge">Spring Security</span>
+                        <span class="skill-card-badge">RESTful APIs</span>
+                        <span class="skill-card-badge">CRUD Operations</span>
+                        <span class="skill-card-badge">Node.js / Express</span>
+                    </div>
+
+                    <div class="small">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span>Java & Spring Boot</span>
+                            <span class="text-primary fw-bold">90%</span>
+                        </div>
+                        <div class="skill-bar mb-3">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+
+                        <div class="d-flex justify-content-between mb-1">
+                            <span>API Integration & CRUD</span>
+                            <span class="text-primary fw-bold">88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FRONTEND -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="card card-dark p-4 h-100">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="p-3 bg-info-subtle text-info rounded-3 me-3">
+                            <i class="fas fa-desktop fa-lg"></i>
+                        </div>
+                        <div>
+                            <h5 class="fw-bold mb-0 text-white">Frontend Development</h5>
+                            <small class="text-secondary">Interactive User Interfaces</small>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-wrap gap-2 mb-4">
+                        <span class="skill-card-badge">React.js</span>
+                        <span class="skill-card-badge">Redux Toolkit</span>
+                        <span class="skill-card-badge">Axios</span>
+                        <span class="skill-card-badge">JavaScript (ES6+)</span>
+                        <span class="skill-card-badge">HTML5 / CSS3</span>
+                        <span class="skill-card-badge">Bootstrap 5</span>
+                    </div>
+
+                    <div class="small">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span>React.js & State Management</span>
+                            <span class="text-info fw-bold">85%</span>
+                        </div>
+                        <div class="skill-bar mb-3">
+                            <div class="skill-progress" style="width: 85%; background: linear-gradient(90deg, #0284c7, #38bdf8);"></div>
+                        </div>
+
+                        <div class="d-flex justify-content-between mb-1">
+                            <span>Responsive UI & CSS</span>
+                            <span class="text-info fw-bold">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%; background: linear-gradient(90deg, #0284c7, #38bdf8);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DATABASE & TOOLS -->
+            <div class="col-lg-4 col-md-12" data-aos="fade-up" data-aos-delay="300">
+                <div class="card card-dark p-4 h-100">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="p-3 bg-warning-subtle text-warning rounded-3 me-3">
+                            <i class="fas fa-database fa-lg"></i>
+                        </div>
+                        <div>
+                            <h5 class="fw-bold mb-0 text-white">Databases & Tools</h5>
+                            <small class="text-secondary">Data & Cloud Deployment</small>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-wrap gap-2 mb-4">
+                        <span class="skill-card-badge">MySQL</span>
+                        <span class="skill-card-badge">SQL Queries</span>
+                        <span class="skill-card-badge">Git & GitHub</span>
+                        <span class="skill-card-badge">Vercel & Render</span>
+                        <span class="skill-card-badge">Android (Java/XML)</span>
+                        <span class="skill-card-badge">Agile / SDLC</span>
+                    </div>
+
+                    <div class="small">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span>MySQL & Relational Concepts</span>
+                            <span class="text-warning fw-bold">85%</span>
+                        </div>
+                        <div class="skill-bar mb-3">
+                            <div class="skill-progress" style="width: 85%; background: linear-gradient(90deg, #d97706, #fbbf24);"></div>
+                        </div>
+
+                        <div class="d-flex justify-content-between mb-1">
+                            <span>Git, GitHub & Deployment</span>
+                            <span class="text-warning fw-bold">82%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 82%; background: linear-gradient(90deg, #d97706, #fbbf24);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE & EDUCATION SECTION -->
+    <section class="container py-5" id="experience">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="badge text-primary mb-2" style="background-color: #1e293b; padding: 8px 16px; border-radius: 20px;">
+                <i class="fas fa-briefcase me-1"></i> Career & Background
+            </span>
+            <h2 class="display-6 fw-bold">
+                Experience & <span class="text-primary">Education</span>
+            </h2>
+            <p class="text-secondary mx-auto" style="max-width: 650px;">
+                Professional internship experience, engineering milestones, and published scientific research papers.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <!-- WORK EXPERIENCE -->
+            <div class="col-lg-6" data-aos="fade-right">
+                <h4 class="fw-bold mb-4 text-white">
+                    <i class="fas fa-building text-primary me-2"></i> Work Experience
+                </h4>
+
+                <div class="timeline-card">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h5 class="fw-bold text-white mb-1">Software Development Intern</h5>
+                            <h6 class="text-primary mb-0">Linkcode Pvt. Ltd</h6>
+                        </div>
+                        <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2">
+                            June 2026 - Present
+                        </span>
+                    </div>
+                    <ul class="text-secondary small mt-3 mb-0 ps-3" style="line-height: 1.8;">
+                        <li>Contributed to a team software project building RESTful APIs and Java-based components in a real-world environment.</li>
+                        <li>Applied Core Java, coding standards and software engineering best practices, including API integration and CRUD operations with database-backed services.</li>
+                        <li>Debugged and resolved application issues while working in an Agile workflow and meeting project delivery timelines.</li>
+                        <li>Collaborated closely with cross-functional team members to understand system requirements and deliver robust solutions.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-card">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h5 class="fw-bold text-white mb-1">Java Full Stack Training</h5>
+                            <h6 class="text-primary mb-0">LinkCode Technology</h6>
+                        </div>
+                        <span class="badge bg-secondary px-3 py-2">Certified</span>
+                    </div>
+                    <p class="text-secondary small mb-0 mt-2">
+                        Comprehensive training covering Core Java, Advanced Java, Spring Boot microservices, React frontend integration, SQL database modeling, and automated testing.
+                    </p>
+                </div>
+            </div>
+
+            <!-- EDUCATION & PUBLICATIONS -->
+            <div class="col-lg-6" data-aos="fade-left">
+                <h4 class="fw-bold mb-4 text-white">
+                    <i class="fas fa-graduation-cap text-primary me-2"></i> Education & Research
+                </h4>
+
+                <div class="timeline-card" style="border-left-color: #10b981;">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h5 class="fw-bold text-white mb-1">Bachelor of Engineering (B.E.)</h5>
+                            <h6 class="text-success mb-0">Computer Engineering &bull; Mumbai University</h6>
+                        </div>
+                        <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2">
+                            2023 – 2026
+                        </span>
+                    </div>
+                    <p class="text-secondary small mb-0 mt-2">
+                        Graduating in 2026 with a high cumulative SGPA of <strong>8.43</strong>. Focus on Data Structures, OOP, Software Engineering, and Database Management.
+                    </p>
+                </div>
+
+                <div class="timeline-card" style="border-left-color: #10b981;">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h5 class="fw-bold text-white mb-1">Diploma in Engineering</h5>
+                            <h6 class="text-success mb-0">MIT Polytechnic, Yeola, India</h6>
+                        </div>
+                        <span class="badge bg-secondary px-3 py-2">
+                            2020 – 2022
+                        </span>
+                    </div>
+                    <p class="text-secondary small mb-0 mt-2">
+                        Graduated with distinction: <strong>74.40%</strong> aggregate percentage.
+                    </p>
+                </div>
+
+                <div class="timeline-card" style="border-left-color: #8b5cf6;">
+                    <h6 class="fw-bold text-white mb-2"><i class="fas fa-book-open text-purple me-2" style="color: #a78bfa;"></i> Research Papers & Conferences:</h6>
+                    <ul class="text-secondary small ps-3 mb-0" style="line-height: 1.8;">
+                        <li>Research Paper Published: <em>International Journal of Engineering Development and Research (IJEDR)</em></li>
+                        <li>Paper Presented: <em>International Conference on Emerging Technologies and Pharmaceutical Research (ICETPR 2026)</em></li>
+                        <li>Research Paper Published: <em>International Journal of Innovative Research in Science, Engineering and Technology (IJIRSET)</em></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="container py-5" id="contact">
+        <div class="cta-box" data-aos="zoom-in">
+            <div class="row align-items-center g-5">
+
+                <!-- LEFT INFO -->
+                <div class="col-lg-6">
+                    <span class="badge text-primary mb-2" style="background-color: #1e293b; padding: 6px 14px; border-radius: 20px;">
+                        Get In Touch
+                    </span>
+                    <h2 class="display-6 fw-bold text-white mb-3">Let's Connect & Build Something Great</h2>
+                    <p class="text-secondary mb-4" style="line-height: 1.8;">
+                        I am open to full-stack software development roles, internships, and engineering opportunities. Reach out directly via the form or through the channels below.
+                    </p>
+
+                    <div class="d-flex flex-column gap-3 mb-4">
+                        <div class="d-flex align-items-center">
+                            <div class="p-3 bg-dark rounded-circle border border-primary-subtle text-primary me-3">
+                                <i class="fas fa-envelope fa-lg"></i>
+                            </div>
+                            <div>
+                                <small class="text-secondary d-block">Email Address</small>
+                                <a href="mailto:khushaliwagh17@gmail.com" class="text-white text-decoration-none fw-semibold">khushaliwagh17@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center">
+                            <div class="p-3 bg-dark rounded-circle border border-success-subtle text-success me-3">
+                                <i class="fas fa-phone-alt fa-lg"></i>
+                            </div>
+                            <div>
+                                <small class="text-secondary d-block">Phone Number</small>
+                                <a href="tel:+918080235513" class="text-white text-decoration-none fw-semibold">+91 8080235513</a>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center">
+                            <div class="p-3 bg-dark rounded-circle border border-info-subtle text-info me-3">
+                                <i class="fas fa-map-marker-alt fa-lg"></i>
+                            </div>
+                            <div>
+                                <small class="text-secondary d-block">Location</small>
+                                <span class="text-white fw-semibold">Pune, Maharashtra, India</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT FORM -->
+                <div class="col-lg-6">
+                    <div class="contact-container">
+                        <h4 class="fw-bold text-white mb-3">Send a Message</h4>
+
+                        <form action="/contact" method="POST" class="contact-form">
+                            <div>
+                                <label class="form-label small text-secondary">Your Name</label>
+                                <input type="text" name="name" class="form-control" placeholder="John Doe" required>
+                            </div>
+
+                            <div>
+                                <label class="form-label small text-secondary">Your Email</label>
+                                <input type="email" name="email" class="form-control" placeholder="john@example.com" required>
+                            </div>
+
+                            <div>
+                                <label class="form-label small text-secondary">Your Message</label>
+                                <textarea name="message" class="form-control" rows="4" placeholder="How can I help you?" required></textarea>
+                            </div>
+
+                            <button type="submit" class="hire-btn w-100 mt-2">
+                                <i class="fas fa-paper-plane me-2"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="text-center py-4 text-secondary mt-5" style="border-top: 1px solid rgba(255,255,255,0.06); font-size: 14px;">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <p class="mb-2 mb-md-0">
+                &copy; 2026 <strong>Khushali Wagh</strong> &bull; Full Stack Java Developer | Software Engineer
+            </p>
+            <div class="d-flex gap-3">
+                <a href="#home" class="text-secondary text-decoration-none">Back to Top ↑</a>
+                <a href="/images/khushaliw.pdf" download class="text-secondary text-decoration-none">Resume</a>
+                <a href="/admin" class="text-primary text-decoration-none"><i class="fas fa-lock me-1"></i>Admin</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Typing effect for Hero subtitle
+        const words = [
+            "Full Stack Java Developer",
+            "Software Engineer",
+            "Spring Boot & REST API Specialist",
+            "React.js & Cloud Deployment Developer"
+        ];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingElement = document.getElementById("heroTypingText");
+
+        function type() {
+            const currentWord = words[wordIndex];
+            if (isDeleting) {
+                typingElement.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 40 : 80;
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                typeSpeed = 1800;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                typeSpeed = 400;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            if (typingElement) type();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<div class="topbar">
+    <div class="search-box">
+        <i class="fas fa-search text-muted"></i>
+        <input type="text" id="adminSearchInput" placeholder="Search projects, messages...">
+    </div>
+
+    <div class="top-right">
+        <a href="/admin/messages" class="notification text-decoration-none" title="Messages">
+            <i class="fas fa-bell"></i>
+            <% if (typeof unreadCount !== 'undefined' && unreadCount > 0) { %>
+                <span><%= unreadCount %></span>
+            <% } %>
+        </a>
+
+        <div class="profile dropdown">
+            <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="color: inherit;">
+                <img src="/images/Firefly1.png" alt="Khushali" style="width:42px; height:42px; border-radius:50%; object-fit:cover; border: 2px solid #2563eb;" onerror="this.onerror=null;this.src='/images/k1.png';">
+                <div class="ms-2 d-none d-md-block text-start">
+                    <strong style="font-size:14px; display:block; line-height: 1.2;">Khushali Wagh</strong>
+                    <small class="text-muted" style="font-size:12px;">Administrator</small>
+                </div>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="profileDropdown">
+                <li><a class="dropdown-item" href="/admin/about"><i class="fas fa-user me-2 text-primary"></i>Profile</a></li>
+                <li><a class="dropdown-item" href="/admin/settings"><i class="fas fa-cog me-2 text-secondary"></i>Settings</a></li>
+                <li><a class="dropdown-item" href="/" target="_blank"><i class="fas fa-globe me-2 text-info"></i>View Website</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item text-danger" href="/logout"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
