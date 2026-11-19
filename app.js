@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
@@ -75,8 +76,8 @@ function queryDb(sql, params = []) {
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.EMAIL_USER || "khushaliwagh17@gmail.com",
-    pass: process.env.EMAIL_PASS || "rdfh egve aqyp zoem"
+    user: process.env.EMAIL_USER ,
+    pass: process.env.EMAIL_PASS
   }
 });
 

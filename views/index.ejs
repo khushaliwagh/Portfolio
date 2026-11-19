@@ -450,17 +450,20 @@
                     👋 Hello, I'm
                 </span>
 
-                <h1 class="display-4 fw-bold mb-2">
-                    Khushali <span class="text-primary">Wagh</span>
-                </h1>
+              <h1 class="display-4 fw-bold mb-2">
+    <% const fullName = (profile && profile.name) || 'Khushali Wagh'; %>
+    <% const nameParts = fullName.trim().split(/\s+/); %>
+    <%= nameParts.slice(0, -1).join(' ') %>
+    <span class="text-primary"><%= nameParts.slice(-1).join('') %></span>
+</h1>
 
                 <p class="lead fw-semibold mb-3" style="color: #60a5fa; font-size: 20px;">
                     <span id="heroTypingText"></span><span class="typing-cursor"></span>
                 </p>
 
-                <p class="mb-4" style="color: #94a3b8; font-size: 16px; line-height: 1.8;">
-                    Computer Engineering graduate (2026) and Full Stack Java Developer with a strong foundation in Java, Spring Boot, React.js, and MySQL. Experienced in building enterprise-ready REST APIs, microservices, and modern responsive web applications following SDLC best practices.
-                </p>
+               <p class="mb-4" style="color: #94a3b8; font-size: 16px; line-height: 1.8;">
+    <%= (profile && profile.about_text) || 'Computer Engineering graduate and Full Stack Java Developer.' %>
+</p>
 
                 <div class="d-flex flex-wrap gap-3 my-4">
                     <a href="/images/Khushali_Wagh.pdf" download="Khushali_Wagh_Resume.pdf" class="btn btn-primary">
@@ -477,7 +480,7 @@
                 </div>
 
                 <div class="d-flex gap-3 social-icons mt-4">
-                    <a href="https://linkedin.com/in/khushaliwagh-7a77042b8" target="_blank" title="LinkedIn Profile">
+                    <a href="https://www.linkedin.com/in/khushali-wagh-7a77042b8/" target="_blank" title="LinkedIn Profile">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
 
@@ -746,7 +749,10 @@
                         <span class="skill-card-badge">Spring Security</span>
                         <span class="skill-card-badge">RESTful APIs</span>
                         <span class="skill-card-badge">CRUD Operations</span>
-                        <span class="skill-card-badge">Node.js / Express</span>
+                        <span class="skill-card-badge">Node.js / Express</span><% skills.filter(skill => skill.category.toLowerCase() === 'backend').forEach(skill => { %>
+                        <span class="skill-card-badge"><%= skill.name %></span>
+<% }); %>
+
                     </div>
 
                     <div class="small">
@@ -789,6 +795,9 @@
                         <span class="skill-card-badge">JavaScript (ES6+)</span>
                         <span class="skill-card-badge">HTML5 / CSS3</span>
                         <span class="skill-card-badge">Bootstrap 5</span>
+                        <% skills.filter(skill => skill.category.toLowerCase() === 'frontend').forEach(skill => { %>
+                         <span class="skill-card-badge"><%= skill.name %></span>
+<% }); %>
                     </div>
 
                     <div class="small">
@@ -831,6 +840,9 @@
                         <span class="skill-card-badge">Vercel & Render</span>
                         <span class="skill-card-badge">Android (Java/XML)</span>
                         <span class="skill-card-badge">Agile / SDLC</span>
+                        <% skills.filter(skill => ['database', 'databases', 'tools', 'database & tools'].includes(skill.category.toLowerCase())).forEach(skill => { %>
+    <span class="skill-card-badge"><%= skill.name %></span>
+<% }); %>
                     </div>
 
                     <div class="small">
