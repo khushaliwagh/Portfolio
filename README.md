@@ -32,8 +32,8 @@ A full-stack, responsive, and interactive developer portfolio website with an in
 ## 🔐 Admin Credentials
 
 - **URL:** `http://localhost:3000/login`
-- **Username:** `admin` (or `khushali` / `khushaliwagh17@gmail.com`)
-- **Password:** `admin123`
+- **Username:---------
+- **Password:----
 
 ---
 
